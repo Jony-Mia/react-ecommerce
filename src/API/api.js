@@ -1,18 +1,8 @@
-// const cache = new Map();
-// let promise = null;
+const url = 'https://api.freeapi.app/api/v1/public/randomproducts?page=1&limit=10&inc=category%252Cprice%252Cthumbnail%252Cimages%252Ctitle%252Cid&query=mens-watches';
 
-// export function fetchPosts() {
-//     if (!promise) {
-//         promise = fetch("https://jsonplaceholder.typicode.com/posts").then(res => res.json());
-//     }
-//     return promise;
-// }
-
-// export function fetchPost(id) {
-//     if (!cache.has(id)) {
-//         let promised = fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then(res => res.json());
-        
-//         cache.set(id, promised)
-//     }
-//     return cache.get(id)
-// }
+export function getProducts(){
+    let productsList =  fetch('https://api.freeapi.app/api/v1/public/randomproducts')
+    .then(res=>res.json());
+     
+return productsList;
+}

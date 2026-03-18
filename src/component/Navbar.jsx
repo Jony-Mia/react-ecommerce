@@ -27,7 +27,7 @@ const Navbar = () => {
                         
                     <div>
                         <button className='btn btn-outline rounded-lg btn-neutral rounded-[8px'>
-                            <i class="fa-sharp fa-regular fa-location-dot"></i> 
+                            <i className="fa-sharp fa-regular fa-location-dot"></i> 
                             <span>Location</span>
                         </button>
                     </div>
