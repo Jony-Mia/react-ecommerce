@@ -18,16 +18,13 @@ const Navbar = () => {
                 </section>
             </header>
             <nav className='p-3 mt-3 pb-5'>
-                <section className='container m-auto grid gap-4 grid-cols-5 items-center'>
+                <section className='container m-auto grid gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid-cols-2 items-center'>
                     <div className='w-fit'>
                         <img src={logo} alt="" />
                     </div>
-                    {/* <div className='row-span-1'> */}
-                        {/* <div className='w-full'> */}
-                            <input type="search" className='input px-3 rounded-lg col-span-2 w-full block' placeholder='Search for product' />
+                    
+                    <input type="search" className='input px-3 rounded-lg col-span-2 w-full block' placeholder='Search for product' />
                         
-                        {/* </div> */}
-                    {/* </div> */}
                     <div>
                         <button className='btn btn-outline rounded-lg btn-neutral rounded-[8px'>
                             <i class="fa-sharp fa-regular fa-location-dot"></i> 
@@ -35,19 +32,23 @@ const Navbar = () => {
                         </button>
                     </div>
                     <div className='flex justify-end'>
-                        <p className='relative space-x-4'>
+                        <p className='relative space-x-2'>
                             
-                            <i className='far relative flex items-center text-2xl fa-heart'>
+                           <button className='btn p-2 rounded-full'>
+                             <i className='far relative flex items-center text-2xl fa-heart'>
                                 <p className=" w-4 h-4 m-0 p-0 text-[9px] absolute top-0 right-0 bg-green-600 flex text-base-100 flex items-center justify-center font-bold text-center rounded-full">5</p>
                             </i>
+                           </button>
                             
-                            <i className='far relative flex items-center text-2xl fa-user'>
-                                {/* <p className=" w-4 h-4 m-0 p-0 text-[9px] absolute top-0 right-0 bg-green-600 flex text-base-100 items-center justify-center font-bold text-center rounded-full">5</p> */}
-                            </i>
+                            <button className='btn p-2 rounded-full'> 
+                                <i className='far relative flex items-center text-2xl fa-user'> </i>
+                            </button>
                             
-                            <i className='far relative flex items-center text-2xl fa-bag-shopping'>
+                          <button className='btn p-2 rounded-full'> 
+                              <i className='far relative flex items-center text-2xl fa-bag-shopping'>
                                 <p className=" w-4 h-4 m-0 p-0 text-[9px] absolute top-0 right-0 bg-green-600 flex text-base-100 flex items-center justify-center font-bold text-center rounded-full">5</p>
                             </i>
+                          </button>
                         </p>
                     </div>
                 </section>
@@ -56,7 +57,7 @@ const Navbar = () => {
                 <section className='flex gap-4'>
                     <div>
                         <button className='btn bg-green-600 p-4 px-5 rounded-lg text-base-100'>
-                            <i className='fa fa-bars'></i>
+                            <span className='hidden'><i className='fa fa-bars'></i></span>
                             All Departments
                         </button>
                     </div>
