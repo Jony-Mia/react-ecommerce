@@ -2,6 +2,7 @@ import React, { Suspense, use } from 'react';
 import Product from "@/component/Product"
 import Slider from '@/component/Slider';
 import Category from '@/component/Category'
+import PromoBanner from '@/component/PromoBanner';
 // const url = 'https://api.freeapi.app/api/v1/public/randomproducts?page=1&limit=10&inc=category%252Cprice%252Cthumbnail%252Cimages%252Ctitle%252Cid&query=mens-watches';
 
 //  let productsPromise= fetch('https://api.freeapi.app/api/v1/public/randomproducts').then(res=>res.json())
@@ -11,7 +12,6 @@ export default function Home ({productsPromise}) {
 let productsData = use(productsPromise) || null ;
 let product = productsData.data.data;
 
- console.log(product);
  
     return (
         <>
@@ -20,9 +20,26 @@ let product = productsData.data.data;
             <br />
             <Slider/>
             <br />
-            <h1 className='font-bold text-3xl my-3 ms-3'>Featured Categories</h1>
+            
             <Category categoryList={product}></Category>
             
+
+           <section className='flex m-auto container items-center mt-10 justify-between'>
+             <PromoBanner/>
+           </section>
+           <br />
+           <br />
+           <br />
+           <div className='grid grid-cols-4 gap-8'>
+            {product.slice(0,20).map(list=>(<Product
+             key={list.id} 
+             title={list.title} 
+             image={list.images[0]} 
+             category={list.category} 
+             price={list.price} 
+             discount={list.discountPercentage} 
+             />))}
+           </div>
         </div>
 
         </>

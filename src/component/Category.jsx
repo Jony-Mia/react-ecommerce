@@ -14,6 +14,7 @@ const Category = ({categoryList}) => {
     
     return (
         <>
+        <h1 className='font-bold text-3xl my-3 ms-3'>Featured Categories</h1>
            <Swiper modules={[Pagination]}
             pagination={{
             type: "fraction"
