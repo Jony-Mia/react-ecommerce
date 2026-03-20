@@ -13,7 +13,6 @@ const Daily = ({id,price,di}) => {
     return () => clearInterval(timer);
   }, []);
 
-  const sec = Math.floor((timeLeft / 1000) % 60);
   const min = Math.floor((timeLeft / 1000 / 60) % 60);
   const hour = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
   const day = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
