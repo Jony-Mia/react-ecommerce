@@ -18,7 +18,7 @@ return (
    
      <Navbar/>
 
-      <Suspense fallback={<h1>Loading....</h1>}>
+      <Suspense fallback={<h1 className='loading loading-spinner text-center'></h1>}>
         <Home productsPromise={productsList} />
       </Suspense>
       

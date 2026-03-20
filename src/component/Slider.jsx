@@ -18,9 +18,9 @@ const Slider = () => {
             pagination={true}
             loop={true}
             spaceBetween={10}
-            // autoplay={{
-            //     delay: 30000
-            // }}
+            autoplay={{
+                delay: 3
+            }}
              >
                 <SwiperSlide>
                     <section style={{
@@ -34,7 +34,7 @@ const Slider = () => {
                         <p className='text-xs badge sm:block badge-warning rounded-full text-neutral font-bold '>Opening sale 50% discount</p>
 
                         <h1 className='sm:text-5xl leading-14 sm:hidden md:block hidden font-bold'> Super Market For <br /> Fresh Grocery </h1>
-                        <h1 className='sm:text-5xl sm:block md:hidden block leading-14 font-bold'> Super Market For Fresh Grocery </h1>
+                        <h1 className='sm:text-5xl sm:block md:hidden block text-neutral leading-14 font-bold'> Super Market For Fresh Grocery </h1>
                         <br className='hidden md:block' />
                         <p className='w-5/7 sm:text-2xl text-[15px] md:text-lg font-semibold text-gray-500'> Introduced a new model for online grocery shopping and convenient home delivery.</p>
                         <button className="btn rounded-[8px] mt-4 btn-neutral">Shop Now <i className='fa fa-arrow-right'></i> </button>

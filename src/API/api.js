@@ -4,5 +4,5 @@ export function getProducts(){
     let productsList =  fetch('https://api.freeapi.app/api/v1/public/randomproducts')
     .then(res=>res.json());
      
-return productsList;
+    return productsList;
 }
