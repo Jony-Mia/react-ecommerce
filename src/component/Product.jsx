@@ -21,11 +21,13 @@ export default function Product({title,category,price,discount,image,onClick}) {
                         
                         
                     <div className="card-actions justify-end">
-                        <p className="font-semibold">{price} <del> {discount}</del> </p>
-                        <button onClick={onClick} className="btn btn-success btn-sm text-base-100"><i className="fa fa-plus"></i>Add</button>
+                        <p className="font-bold text-2xl"> ${price} <del className='text-success'> ${discount}</del> </p>
+                        <button onClick={onClick} className="btn btn-success text-base-100"><i className="fa fa-plus"></i>Add</button>
                     </div>
                 </div>
             </div>
         </>
     );
 };
+                    // <p className='font-bold text-2xl'>${price}</p>
+                    // <del className='text-success'>${discount}</del>

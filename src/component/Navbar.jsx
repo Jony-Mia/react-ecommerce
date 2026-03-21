@@ -20,7 +20,7 @@ const Navbar = () => {
             <nav className='p-3 mt-3 pb-5'>
                 <section className='container m-auto grid gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid-cols-2 items-center'>
                     <div className='w-fit'>
-                        <img src={logo} alt="" />
+                        <button className='cursor-pointer' onClick={()=>window.open(window.location.origin,"_self")} ><img src={logo} alt="" /></button>
                     </div>
                     
                     <input type="search" className='input px-3 rounded-lg col-span-2 w-full block' placeholder='Search for product' />

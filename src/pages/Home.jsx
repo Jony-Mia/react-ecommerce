@@ -42,8 +42,7 @@ let product = productsData.data.data;
            <br />
            <br />
            <br />
-                <div className='grid sm:grid-cols-1 md:grid-cols-4 grid-cols-3 gap-2'>
-            
+                <div className='grid sm:grid-cols-3 md:grid-cols-5 max-md:grid-cols-5 grid-cols-2 gap-10'>
                 {product.slice(0,20).map(list=>(<Product
                 onClick={()=>navigate(`/product/${list.id}`)}
                 key={list.id} 
@@ -53,7 +52,7 @@ let product = productsData.data.data;
                 price={list.price} 
                 discount={list.discountPercentage} 
                 />))}
-            </div>
+                </div>
            
             <div className='grid sm:grid-cols-1 md:grid-cols-4 grid-cols-3 mt-10 gap-2'>
             <div style={{
