@@ -27,7 +27,7 @@ const PostDetails = () => {
     
     return (
         <>
-        <div  className='container grid-cols-2 grid gap-15 mt-10 p-4 m-auto'>
+        <div  className='container sm:grid-cols-1 grid-cols-1 md:gri grid gap-15 mt-10 p-4 m-auto'>
             <div className=''>
             <Swiper
             style={{
@@ -38,10 +38,11 @@ const PostDetails = () => {
             watchSlidesProgress={true}
             spaceBetween={10}
             navigation={true}
+            loop={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper2 relative"
-        >  <div className='absolute top-4 right-4 z-1 bg-accent p-3 text-base-100 font-bold rounded-full'>{single.brand}</div>
+        >  <div className='absolute top-4 right-4 z-1 badge badge-soft badge-success p-3 font-bold rounded-full'>{single.brand}</div>
            {image}
             </Swiper>
             <br />
@@ -59,8 +60,8 @@ const PostDetails = () => {
             </Swiper>
             </div>
             <div className=''>
-                <h1>{single.category}</h1>
-                <h2>{single.title}</h2>
+                <h1 className='text-success font-bold text-2xl ' >{single.category}</h1>
+                <h2 className='font-semibold my-2'>{single.title}</h2>
                 <div className="rating rating-xs">
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="2 star" defaultChecked />
@@ -68,12 +69,17 @@ const PostDetails = () => {
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="4 star" />
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="5 star" />
                     </div>
-                <div>
-                    <p>{single.price}</p>
-                    <p>{single.discountPercentage}</p>
-                    <p>{percentage}</p>
+                <div className='flex relative gap-3'>
+                    <p className='font-bold text-2xl'>${single.price}</p>
+                    <del className='text-success'>${single.discountPercentage}</del>
+                    <p className='bg-red-600 p-2.5 rounded-4xl badge badge-xs text-base-100 font-bold'>$ {percentage}  offer</p>
                 </div>
-                <hr />
+                <hr className=' border-b-2 border-base-300 w-full mt-2.5 ' />
+                <div className='space-x-2'>
+                    <button className="btn btn-outline">250g</button>
+                    <button className="btn btn-outline">500g</button>
+                    <button className="btn btn-outline">1kg</button>
+                </div>
             </div>
         </div>
         
