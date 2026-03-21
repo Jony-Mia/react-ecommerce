@@ -3,7 +3,7 @@ export default function Product({title,category,price,discount,image,onClick}) {
 
     return (
         <>
-            <div className="card hover:shadow-lg border-green-300 hover:border bg-base-100 pt-5 shadow-sm">
+            <div className="card hover:shadow-lg hover:border-green-300 border-transparent border bg-base-100 pt-5 shadow-sm">
                 <figure>
                     <img src={image}
                          alt="Shoes" />

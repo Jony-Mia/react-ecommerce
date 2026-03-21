@@ -21,13 +21,14 @@ const PostDetails = () => {
     let singleProductData = use(singleProduct(id))
     
     let single = singleProductData.data;
-    let image  = single.images.map(i=><SwiperSlide className=' border-transparent border-2 active:border-green-400 rounded-lg' key={i}><img className='w-full rounded-lg' src={i} alt="" /></SwiperSlide>)
+    let image  = single.images.map(i=><SwiperSlide className=' border-transparent border-2 active:border-green-400 rounded-lg' key={i}><img className='w-full rounded-lg' src={i} alt="" /></SwiperSlide>);
     
+    let percentage= Math.round(single.price * single.discountPercentage /100)
     
     return (
         <>
-        <div  className='container p-4 m-auto'>
-            <div className='w-[50%]'>
+        <div  className='container grid-cols-2 grid gap-15 mt-10 p-4 m-auto'>
+            <div className=''>
             <Swiper
             style={{
             '--swiper-navigation-color': '#fff',
@@ -39,8 +40,8 @@ const PostDetails = () => {
             navigation={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
-        >
+            className="mySwiper2 relative"
+        >  <div className='absolute top-4 right-4 z-1 bg-accent p-3 text-base-100 font-bold rounded-full'>{single.brand}</div>
            {image}
             </Swiper>
             <br />
@@ -56,6 +57,23 @@ const PostDetails = () => {
             >
                {image}
             </Swiper>
+            </div>
+            <div className=''>
+                <h1>{single.category}</h1>
+                <h2>{single.title}</h2>
+                <div className="rating rating-xs">
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="2 star" defaultChecked />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="3 star" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="4 star" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="5 star" />
+                    </div>
+                <div>
+                    <p>{single.price}</p>
+                    <p>{single.discountPercentage}</p>
+                    <p>{percentage}</p>
+                </div>
+                <hr />
             </div>
         </div>
         
