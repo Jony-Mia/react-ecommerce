@@ -1,5 +1,5 @@
 import React from 'react';
-import france from "../assets/img/492dcf80-fa41-4279-af8f-ae496be70ba1.svg"
+
 import logo from "../assets/img/freshcart-logo.svg"
 const Navbar = () => {
     return (

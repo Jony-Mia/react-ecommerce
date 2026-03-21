@@ -19,7 +19,7 @@ const Slider = () => {
             loop={true}
             spaceBetween={10}
             autoplay={{
-                delay: 3
+                delay: 4000
             }}
              >
                 <SwiperSlide>

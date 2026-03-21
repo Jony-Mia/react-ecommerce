@@ -1,4 +1,5 @@
-export default function Product({title,category,price,discount,image}) {
+import React from 'react';
+export default function Product({title,category,price,discount,image,onClick}) {
 
     return (
         <>
@@ -21,7 +22,7 @@ export default function Product({title,category,price,discount,image}) {
                         
                     <div className="card-actions justify-end">
                         <p className="font-semibold">{price} <del> {discount}</del> </p>
-                        <button className="btn btn-success btn-sm text-base-100"><i className="fa fa-plus"></i>Add</button>
+                        <button onClick={onClick} className="btn btn-success btn-sm text-base-100"><i className="fa fa-plus"></i>Add</button>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, use } from 'react';
+import { useNavigate } from "react-router";
 import Product from "@/component/Product"
 // import Slider from '@/component/Slider';
 // import Category from '@/component/Category'
@@ -18,6 +19,7 @@ const Daily = lazy(()=>import("@/component/Daily"))
 //   const response = await fetch('https://api.freeapi.app/api/v1/public/randomproducts');
   
 export default function Home ({productsPromise}) {
+let navigate = useNavigate()
 let productsData = use(productsPromise) || null ;
 let product = productsData.data.data;
 
@@ -43,9 +45,10 @@ let product = productsData.data.data;
                 <div className='grid sm:grid-cols-1 md:grid-cols-4 grid-cols-3 gap-2'>
             
                 {product.slice(0,20).map(list=>(<Product
+                onClick={()=>navigate(`/product/${list.id}`)}
                 key={list.id} 
                 title={list.title} 
-                image={list.images[0]} 
+                image={list.images} 
                 category={list.category} 
                 price={list.price} 
                 discount={list.discountPercentage} 
