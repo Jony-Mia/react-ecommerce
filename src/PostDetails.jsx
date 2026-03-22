@@ -2,11 +2,11 @@ import React, { use, useState } from 'react';
 import { useParams } from 'react-router';
 import { singleProduct } from './API/api';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 const PostDetails = () => {
     let [quantity, setQuantity] = useState(0)
@@ -54,9 +54,11 @@ const PostDetails = () => {
                {image}
             </Swiper>
             </div>
+
+
             <div className=''>
-                <h1 className='text-success font-bold text-2xl ' >{single.category}</h1>
-                <h2 className='font-semibold my-2'>{single.title}</h2>
+                <h1 className='text-success font-bold text-lg ' >{single.category}</h1>
+                <h2 className='font-semibold text-3xl my-2'>{single.title}</h2>
                 <div className="rating rating-xs">
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="2 star" defaultChecked />

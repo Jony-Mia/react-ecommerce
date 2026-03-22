@@ -1,21 +1,15 @@
-import React, { lazy, Suspense, use } from 'react';
+import React, { lazy, use } from 'react';
 import { useNavigate } from "react-router";
-import Product from "@/component/Product"
-// import Slider from '@/component/Slider';
-// import Category from '@/component/Category'
-// import PromoBanner from '@/component/PromoBanner';
-// import Daily from '@/component/Daily';
+import Product from "@/component/Product";
 import Banner_Deal from '@/assets/img/banner-deal.jpeg';
 
-// const Product = lazy(()=>import("@/component/Product"))
-const Slider = lazy(()=>import("@/component/Slider"))
-const Category= lazy(()=>import("@/component/Category"))
-const PromoBanner = lazy(()=>import("@/component/PromoBanner"))
-const Daily = lazy(()=>import("@/component/Daily"))
+const Slider = lazy(()=>import("@/component/Slider"));
+const Category= lazy(()=>import("@/component/Category"));
+const PromoBanner = lazy(()=>import("@/component/PromoBanner"));
+const Daily = lazy(()=>import("@/component/Daily"));
 
-// const url = 'https://api.freeapi.app/api/v1/public/randomproducts?page=1&limit=10&inc=category%252Cprice%252Cthumbnail%252Cimages%252Ctitle%252Cid&query=mens-watches';
-
-//  let productsPromise= fetch('https://api.freeapi.app/api/v1/public/randomproducts').then(res=>res.json())
+  // const url = 'https://api.freeapi.app/api/v1/public/randomproducts?page=1&limit=10&inc=category%252Cprice%252Cthumbnail%252Cimages%252Ctitle%252Cid&query=mens-watches';
+ //  let productsPromise= fetch('https://api.freeapi.app/api/v1/public/randomproducts').then(res=>res.json())
 //   const response = await fetch('https://api.freeapi.app/api/v1/public/randomproducts');
   
 export default function Home ({productsPromise}) {
@@ -23,7 +17,7 @@ let navigate = useNavigate()
 let productsData = use(productsPromise) || null ;
 let product = productsData.data.data;
 
- 
+
     return (
         <>
         <div className='container m-auto mt-5'>
@@ -32,17 +26,15 @@ let product = productsData.data.data;
             <br />
             <Slider/>
             <br />
-            
-            <Category categoryList={product}></Category>
-            
 
+            <Category categoryList={product}></Category>
            <section className='flex m-auto container items-center mt-10 justify-between'>
              <PromoBanner/>
            </section>
            <br />
            <br />
            <br />
-                <div className='grid sm:grid-cols-3 md:grid-cols-5 max-md:grid-cols-5 grid-cols-2 gap-10'>
+                <div className='grid sm:grid-cols-2 md:grid-cols-4 max-md:grid-cols-4 grid-cols-2 gap-10'>
                 {product.slice(0,20).map(list=>(<Product
                 onClick={()=>navigate(`/product/${list.id}`)}
                 key={list.id} 
@@ -51,6 +43,8 @@ let product = productsData.data.data;
                 category={list.category} 
                 price={list.price} 
                 discount={list.discountPercentage} 
+                data = {list}
+                // cartProduct={cartProduct}
                 />))}
                 </div>
            
@@ -79,8 +73,6 @@ let product = productsData.data.data;
              discount={list.discountPercentage} 
              />))}
              </div>
-
-
            </div>
 
         </>

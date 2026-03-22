@@ -10,17 +10,14 @@ import 'swiper/css/pagination';
 // import './styles.css';
 const Slider = () => {
     return (
-      <>
+    <>
         <div className=''>
             <Swiper
             modules={[Navigation,Autoplay,Pagination]}
-            
             pagination={true}
             loop={true}
             spaceBetween={10}
-            autoplay={{
-                delay: 4000
-            }}
+            autoplay={{delay: 4000}}
              >
                 <SwiperSlide>
                     <section style={{
@@ -54,10 +51,7 @@ const Slider = () => {
                         className={`w-full flex items-center p-5 h-full rounded-2xl`} >
                         <div className='px-10'>
                         <p className='text-xs badge sm:block badge-warning rounded-full text-neutral font-bold '>Opening sale 50% discount</p>
-
                         <h1 className='sm:text-3xl text-4xl md:text-5xl leading-14 sm:hidden md:block hidden font-bold'> Super Market For <br /> Fresh Grocery </h1>
-                       
-
                         <h1 className='sm:text-5xl sm:block md:hidden block leading-14 font-bold'> Free shipping on <br  className='hidden md:block' /> orders over <span className='text-green-600 font-bold'> 100$</span> </h1>
 
                         <br className='hidden md:block' />
@@ -74,7 +68,8 @@ const Slider = () => {
                 
 
             </Swiper>
-        </div></>
+        </div>
+    </>
     );
 };
 

@@ -7,7 +7,6 @@ let productPromise = null;
 let productCache = new Map()
 
 export let fetchProducts= async()=>{
-
     let productsList = await axios.get(url)
     return productsList.data
 }
