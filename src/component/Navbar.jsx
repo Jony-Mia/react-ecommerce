@@ -34,7 +34,7 @@ const Navbar = () => {
                             </button>
                         </div>
                         <div className='flex justify-end'>
-                            <p className='relative flex space-x-2'>
+                            <div className='relative flex space-x-2'>
 
                                 <button className='btn p-2 rounded-full'>
                                     <i className='far relative flex items-center text-2xl fa-heart'>
@@ -62,7 +62,7 @@ const Navbar = () => {
                                         </ul>
                                     </div>
                                 </div>
-                            </p>
+                            </div>
                         </div>
                     </section>
                 </nav>

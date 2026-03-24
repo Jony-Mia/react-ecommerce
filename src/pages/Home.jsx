@@ -1,4 +1,4 @@
-import React, { lazy, use } from 'react';
+import React, { lazy, use, useState } from 'react';
 import { useNavigate } from "react-router";
 import Product from "@/component/Product";
 import Banner_Deal from '@/assets/img/banner-deal.jpeg';
@@ -17,7 +17,13 @@ let navigate = useNavigate()
 let productsData = use(productsPromise) || null ;
 let product = productsData.data.data;
 
+let [cartData, setCartData] = useState([])
+console.log(cartData);
 
+function dataSender(data){
+    console.log(data);    
+    setCartData(()=>cartData,[...data])
+}
     return (
         <>
         <div className='container m-auto mt-5'>
@@ -39,12 +45,12 @@ let product = productsData.data.data;
                 onClick={()=>navigate(`/product/${list.id}`)}
                 key={list.id} 
                 title={list.title} 
-                image={list.images} 
+                image={list.thumbnail} 
                 category={list.category} 
                 price={list.price} 
                 discount={list.discountPercentage} 
                 data = {list}
-                // cartProduct={cartProduct}
+                dataSender={dataSender}
                 />))}
                 </div>
            
@@ -65,12 +71,12 @@ let product = productsData.data.data;
                 </button>
             </div>
              {product.slice(0,3).map(list=>(<Daily
-             key={list.id} 
-             title={list.title} 
-             image={list.images[0]} 
-             category={list.category} 
-             price={list.price} 
-             discount={list.discountPercentage} 
+                        key={list.id} 
+                        title={list.title} 
+                        image={list.images[0]} 
+                        category={list.category} 
+                        price={list.price} 
+                        discount={list.discountPercentage} 
              />))}
              </div>
            </div>

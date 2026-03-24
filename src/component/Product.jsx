@@ -1,4 +1,4 @@
-import { cartProductData } from '@/feature/cart';
+// import { cartProductData } from '@/feature/cart';
 import React from 'react';
 export default function Product({title,category,price,discount,image,onClick,data}) {
 // let cartProduct = cartProductData
@@ -21,7 +21,7 @@ export default function Product({title,category,price,discount,image,onClick,dat
                     </div>
                   <div className="card-actions justify-end">
                         <p className="font-bold text-2xl"> ${price} <del className='text-success'> ${discount}</del> </p>
-                        <button onClick={()=>cartProductData(data)} className="btn btn-success text-base-100"><i className="fa fa-plus"></i>Add</button>
+                        <button onClick={()=>console.log(data)} className="btn btn-success text-base-100"><i className="fa fa-plus"></i>Add</button>
                     </div>
                 </div>
             </div>
