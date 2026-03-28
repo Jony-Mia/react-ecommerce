@@ -2,7 +2,9 @@ import React from 'react';
 
 import logo from "../assets/img/freshcart-logo.svg"
 import Cart from './Cart';
-const Navbar = () => {
+const Navbar = ({cartProduct,setCartProduct}) => {
+    // let data = JSON.parse(localStorage.getItem('cart'))
+    let data = cartProduct
     return (
         <>
             <div className='sticky top-0 z-3 bg-base-100'>
@@ -43,7 +45,9 @@ const Navbar = () => {
                                 </button>
 
                                 <button className='btn p-2 rounded-full'>
-                                    <i className='far relative flex items-center text-2xl fa-user'> </i>
+                                    <i className='far relative flex items-center text-2xl fa-user'> 
+                                        
+                                    </i>
                                 </button>
 
                                 <div className="drawer" >
@@ -52,13 +56,14 @@ const Navbar = () => {
                                         {/* Page content here */}
                                         <label role='button' htmlFor="my-drawer-1" className="btn w-full drawer-button">
                                             <span className=' fa fa-shopping-cart'></span>
+                                             <p className=" w-4 h-4 m-0 p-0 text-[9px] absolute top-0 right-0 bg-green-600 text-base-100 flex items-center justify-center font-bold text-center rounded-full">{cartProduct?.length===0 ? data.length : cartProduct?.length || 0}</p>
                                         </label>
                                     </div>
                                     <div className="drawer-side">
                                         <label htmlFor="my-drawer-1" aria-label="close sidebar" className="drawer-overlay"></label>
-                                        <ul className="menu bg-base-200 min-h-full w-80 p-4">
+                                        <ul className="menu bg-base-200 min-h-full w-100 p-4">
                                             {/* Sidebar content here */}
-                                            <Cart/>
+                                            <Cart setCartProduct={setCartProduct} cartProduct={cartProduct} />
                                         </ul>
                                     </div>
                                 </div>

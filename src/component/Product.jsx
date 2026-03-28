@@ -1,7 +1,11 @@
 // import { cartProductData } from '@/feature/cart';
 import React from 'react';
-export default function Product({title,category,price,discount,image,onClick,data}) {
+export default function Product({title,category,price,discount,image,onClick,data,setCartProduct,cartProduct,set}) {
+
 // let cartProduct = cartProductData
+// function set(datas){
+//     setCartProduct([...cartProduct,datas])
+// }
     return (
         <>
             <div  className="card hover:shadow-lg hover:border-green-300 border-transparent border bg-base-100 pt-5 shadow-sm">
@@ -21,7 +25,7 @@ export default function Product({title,category,price,discount,image,onClick,dat
                     </div>
                   <div className="card-actions justify-end">
                         <p className="font-bold text-2xl"> ${price} <del className='text-success'> ${discount}</del> </p>
-                        <button onClick={()=>console.log(data)} className="btn btn-success text-base-100"><i className="fa fa-plus"></i>Add</button>
+                        <button onClick={()=>set(data)} className="btn btn-success text-base-100"><i className="fa fa-plus"></i>Add</button>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@ let productPromise = null;
 let productCache = new Map()
 
 export let fetchProducts= async()=>{
-    let productsList = await axios.get(url )
+    let productsList = await axios.get('/data.json' )
     return productsList.data
 }
 export let fetchSingleProduct = async (id)=>{

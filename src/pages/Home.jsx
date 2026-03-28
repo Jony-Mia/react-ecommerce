@@ -12,17 +12,15 @@ const Daily = lazy(()=>import("@/component/Daily"));
  //  let productsPromise= fetch('https://api.freeapi.app/api/v1/public/randomproducts').then(res=>res.json())
 //   const response = await fetch('https://api.freeapi.app/api/v1/public/randomproducts');
   
-export default function Home ({productsPromise}) {
+export default function Home ({productsPromise,setCartProduct,cartProduct}) {
 let navigate = useNavigate()
 let productsData = use(productsPromise) || null ;
 let product = productsData.data.data;
+// let [cartData, setCartData] = useState([])
 
-let [cartData, setCartData] = useState([])
-console.log(cartData);
-
-function dataSender(data){
-    console.log(data);    
-    setCartData(()=>cartData,[...data])
+function set(datas){
+    setCartProduct([...new Set(cartProduct),datas])
+    localStorage.setItem('cart',JSON.stringify([...cartProduct,datas]))
 }
     return (
         <>
@@ -42,15 +40,16 @@ function dataSender(data){
            <br />
                 <div className='grid sm:grid-cols-2 md:grid-cols-4 max-md:grid-cols-4 grid-cols-2 gap-10'>
                 {product.slice(0,20).map(list=>(<Product
-                onClick={()=>navigate(`/product/${list.id}`)}
-                key={list.id} 
-                title={list.title} 
-                image={list.thumbnail} 
-                category={list.category} 
-                price={list.price} 
-                discount={list.discountPercentage} 
-                data = {list}
-                dataSender={dataSender}
+                    onClick={()=>navigate(`/product/${list.id}`)}
+                    key={list.id} 
+                    title={list.title} 
+                    image={list.thumbnail} 
+                    category={list.category} 
+                    price={list.price} 
+                    discount={list.discountPercentage} 
+                    data = {list}
+                    set={set}
+                    setCartProduct={setCartProduct}
                 />))}
                 </div>
            
